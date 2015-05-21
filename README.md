@@ -20,4 +20,10 @@ Prerequisite:
 * set number for population and generations (python experiment)
 * specify running time (supervisor)
 
+TODO:
+* There is a small memory leak in supervisor class
+* Not all functionality is used of peas evolutionary algorithm in specified task (line following)
+* Windows support
+* Freeing resources after a single evolution
+
 # 2. HyperSharpNEAT + Webots
