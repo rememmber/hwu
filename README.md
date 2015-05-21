@@ -34,3 +34,9 @@ Line following experiment in 2 different worlds fitness evolution:
 ![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/Webots/controllers/advanced_genetic_algorithm_supervisor/stats/gen13.png "Logo Title Text 1")
 
 # 2. HyperSharpNEAT + Webots
+
+
+-------
+Bibliography:
+* http://link.springer.com/chapter/10.1007/978-3-642-55337-0_5
+* http://eplex.cs.ucf.edu/uncategorised/software
