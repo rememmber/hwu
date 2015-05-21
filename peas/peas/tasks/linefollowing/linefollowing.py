@@ -267,8 +267,8 @@ class LineFollowingTask(object):
         
     def solve(self, network):
         #stats = self.evaluate(network)
-        #self.visualize(network, 'test2.png')
-        #network.visualize('test.png')
+        self.visualize(network, 'test2.png')
+        network.visualize('test.png')
         return stats['speed'] > 0.20
         
     def visualize(self, network, filename=None):

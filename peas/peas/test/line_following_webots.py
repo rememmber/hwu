@@ -32,6 +32,8 @@ from peas.tasks.linefollowing import LineFollowingTask
 
 import time
 
+import signal
+
 #import admin
 
 developer = None
@@ -48,10 +50,7 @@ comm_direction = Communication.PROVIDE_ANN;
 def pass_ann(ann):
     #dir = os.path.dirname('C:/Users/ifxboris/Desktop/hwu/Webots/controllers/advanced_genetic_algorithm_supervisor/fifofile')
     #if not os.path.exists(dir):
-    #    print 'does not exist'
     #    os.makedirs(dir)
-    #else:
-    #    print ' exists'
 
     fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes.txt'), 'wb')
     fifo.write(' '.join(map(str, ann)))  #str(len(ann)) + ' ' + ' '.join(map(str, ann))
@@ -79,8 +78,6 @@ def evaluate(individual, task, developer):
     
     pass_ann(phenotype.get_connectivity_matrix())
     fitness = get_stats()
-    print 'got fitness: '
-    print fitness
 
     #print fitness
 
@@ -107,7 +104,7 @@ def a_callback(self):
 
 
 ### SETUPS ###    
-def run(method, setup, generations=10, popsize=10):
+def run(method, setup, generations=15, popsize=50):
     task_kwds = dict(field='eight',
                      observation='eight',
                      max_steps=3000,
@@ -166,16 +163,42 @@ def run(method, setup, generations=10, popsize=10):
                         solution=partial(solve, task=task, developer=developer), 
                         )
 
+    fitnesses = list()
+
     fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/best_solution.txt'), 'a+')
     for champion in results['champions']:
+        fitnesses.append(champion.stats['fitness'])
         phenotype = developer.convert(champion)
-        #nonlocal.counter += 1
-        #phenotype.visualize('visual'+str(nonlocal.counter)+'.png', inputs=10, outputs=2)
+        nonlocal.counter += 1
+        dir = os.path.dirname('stats/visual'+str(nonlocal.counter)+'.png')
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        phenotype.visualize('stats/visual'+str(nonlocal.counter)+'.png', inputs=10, outputs=2)
         fifo.write(' '.join(map(str, phenotype.get_connectivity_matrix()))+'\n')
     fifo.close()
+
+
+
+    """ Visualize evolution. """
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
+
+    print "Saving as " + os.path.join(os.getcwd(), 'stats/fitness_evolution')
+    plt.figure()
+    x = range(len(results['champions']))
+    y = np.asarray(fitnesses)
+    xa = plt.gca().get_xaxis()
+    xa.set_major_locator(MaxNLocator(integer=True))
+    plt.plot(x, y)
+    plt.axis('on')
+    plt.savefig(os.path.join(os.getcwd(), 'stats/fitness_evolution'), bbox_inches='tight', pad_inches=0)
+    plt.close()
 
     return results
 
 if __name__ == '__main__':
     print 'running peas line following + webots'
+    parent = sys.argv[1]
     resnhn = run('nhn', 'hard')
+    print 'Done'
+    os.kill(parent, signal.SIGKILL)

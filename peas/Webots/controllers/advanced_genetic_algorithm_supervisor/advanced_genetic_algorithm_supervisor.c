@@ -85,7 +85,7 @@ static double robot_rot0[4];    // a rotation needs 4 doubles
 
 // start with a demo until the user presses the 'O' key
 // (change this if you want)
-static bool demo = false;
+static bool demo = true;
 
 int steps=0; //steps taken during one run (there is also another way to get this value)
 double total_fitness; //holds information about total fitness during one run
@@ -283,6 +283,7 @@ void plot_trajectory(){
 void run_seconds(double seconds) {
     int i, n = 1000.0 * seconds / time_step;
     for (i = 0; i < n; i++) {
+    
         check_for_slaves_data();
         //plot_trajectory();
         
@@ -324,7 +325,7 @@ void evaluate_genotype(Genotype genotype) {
     
     // measure fitness
     double fitness = measure_fitness();
-    
+
     char output_fitness[1*sizeof(double)];
     snprintf(output_fitness,sizeof(output_fitness),"%f",fitness);
     
