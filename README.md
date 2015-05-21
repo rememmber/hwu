@@ -9,6 +9,9 @@ a) Pygraphviz
 Supported platforms: OSX; Win (in progress)
 
 Run by:
-path_to_webots --mode=fast --stdout --stderr world.wbt
+path_to_webots --mode=fast --stdout --stderr path_to_world.wbt
+
+Prerequisite:
+a) specify python_path (supervisor); b) set number for population and generations (python experiment); c) specify running time (supervisor)
 
 # 2. HyperSharpNEAT + Webots
