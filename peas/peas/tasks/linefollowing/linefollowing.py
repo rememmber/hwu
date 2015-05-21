@@ -40,7 +40,7 @@ def path_length(path):
     
 ### CLASSES ###
 
-class Robot(object):
+#class Robot(object):
     # """ Robot that performs this task. """
     #    
     #    def __init__(self, space, field_friction, field_observation, initial_pos,
