@@ -7,3 +7,5 @@ Optional:
 a) Pygraphviz
 
 Supported platforms: OSX; Win (in progress)
+
+# 2. HyperSharpNEAT + Webots
