@@ -8,4 +8,7 @@ a) Pygraphviz
 
 Supported platforms: OSX; Win (in progress)
 
+Run by:
+path_to_webots --mode=fast --stdout --stderr world.wbt
+
 # 2. HyperSharpNEAT + Webots
