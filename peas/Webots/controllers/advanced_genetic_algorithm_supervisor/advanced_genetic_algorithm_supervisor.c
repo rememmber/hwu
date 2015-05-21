@@ -38,7 +38,7 @@
 
     static const char *PYTHON_PATH = "C:\\Windows\\py.exe "; //used for WIN (for UNIX, path is specified inside the .py file)
 #elif defined __APPLE__
-    static const char *GENOTYPE_FILE_NAME = "fifofile.txt";
+    static const char *GENOTYPE_FILE_NAME = "genes.txt";
 
     static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
 
@@ -324,9 +324,9 @@ void evaluate_genotype(Genotype genotype) {
     
     // measure fitness
     double fitness = measure_fitness();
-    
+    printf("writing fitness: %f\n", fitness);
     char output_fitness[1*sizeof(double)];
-    snprintf(output_fitness,strlen(output_fitness),"%f",fitness);
+    snprintf(output_fitness,sizeof(output_fitness),"%f",fitness);
     
     FILE *file;
     file = fopen(GENOTYPE_FITNESS_FILE_NAME,"w"); //fopen("/Users/master/Desktop/test_processes/fifofile_fitness","w");
@@ -335,19 +335,25 @@ void evaluate_genotype(Genotype genotype) {
 }
 
 void run_optimization() {
+	printf("optimization\n");
     int times = 0;
     int redo = 1;
     while(redo){
+		printf("reading %s\n", GENOTYPE_FILE_NAME);
         FILE *fp = fopen(GENOTYPE_FILE_NAME, "rb");
         if ( fp == NULL ){
+			printf("shit\n");
             fclose(fp);
             sleep(1);
             continue;
             run_optimization();
-        }
+        }else{
+			printf("not shit\n");
+		}
         
         while ( !feof (fp) )
         {
+			printf("while\n");
             redo = 0;
             if(isEmpty(fp)){
             fclose(fp);

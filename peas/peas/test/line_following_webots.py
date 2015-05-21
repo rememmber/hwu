@@ -79,6 +79,8 @@ def evaluate(individual, task, developer):
     
     pass_ann(phenotype.get_connectivity_matrix())
     fitness = get_stats()
+    print 'got fitness: '
+    print fitness
 
     #print fitness
 
