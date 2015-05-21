@@ -326,12 +326,12 @@ void evaluate_genotype(Genotype genotype) {
     // measure fitness
     double fitness = measure_fitness();
 
-    char output_fitness[1*sizeof(double)];
-    snprintf(output_fitness,sizeof(output_fitness),"%f",fitness);
+    char output[50];
+    snprintf(output,50,"%f",fitness);
     
     FILE *file;
     file = fopen(GENOTYPE_FITNESS_FILE_NAME,"w"); //fopen("/Users/master/Desktop/test_processes/fifofile_fitness","w");
-    fprintf(file, output_fitness);
+    fprintf(file, output);
     fclose(file);
 }
 
@@ -460,7 +460,8 @@ int main(int argc, const char *argv[]) {
         strcpy(str2, PYTHON_PATH);
         strcat(str2, name_with_extension);
     
-        if (!CreateProcess(NULL, str2, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
+        //0 instead of CREATE_NEW_CONSOLE shows outoput in Webots console
+        if (!CreateProcess(NULL, str2, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
         {
             printf( "CreateProcess failed (%d).\n", GetLastError() );
         }
