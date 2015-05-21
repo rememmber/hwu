@@ -37,6 +37,7 @@ Line following experiment in 2 different worlds fitness evolution:
 
 
 -------
-Bibliography:
+References:
 * http://link.springer.com/chapter/10.1007/978-3-642-55337-0_5
 * http://eplex.cs.ucf.edu/uncategorised/software
+* https://github.com/noio/peas
