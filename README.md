@@ -6,4 +6,4 @@ a) Python 2.7. b) Numpy; c) Webots
 Optional:
 a) Pygraphviz
 
-Supported platforms: OSX
+Supported platforms: OSX; Win (in progress)
