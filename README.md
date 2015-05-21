@@ -27,4 +27,10 @@ TODO:
 * Windows support (suspect problem using file system)
 * Freeing resources after a single evolution
 
+Line following experiment in 2 different worlds fitness evolution:
+![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/Webots/controllers/advanced_genetic_algorithm_supervisor/stats/fitness_evolution.png "Logo Title Text 1")
+
+,where the best fitness got the ANN:
+![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/Webots/controllers/advanced_genetic_algorithm_supervisor/stats/gen13.png "Logo Title Text 1")
+
 # 2. HyperSharpNEAT + Webots
