@@ -52,21 +52,21 @@ def pass_ann(ann):
     #if not os.path.exists(dir):
     #    os.makedirs(dir)
 
-    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes.txt'), 'wb')
+    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes'), 'wb')
     fifo.write(' '.join(map(str, ann)))  #str(len(ann)) + ' ' + ' '.join(map(str, ann))
     fifo.close()
     comm_direction = Communication.EVALUATION_RESULTS
 	
 def get_stats():
-    while not os.path.exists(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt')):
+    while not os.path.exists(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness')):
 	    time.sleep(1)
 	    continue
-    fitness = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt'))
+    fitness = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness'))
     comm_direction = Communication.PROVIDE_ANN
     fitness_data = fitness.read()
     fitness.close()
     #time.sleep(5)
-    os.remove(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt'))
+    os.remove(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness'))
     return fitness_data
 
 def evaluate(individual, task, developer):
@@ -104,7 +104,7 @@ def a_callback(self):
 
 
 ### SETUPS ###    
-def run(method, setup, generations=15, popsize=50):
+def run(method, setup, generations=200, popsize=50):
     task_kwds = dict(field='eight',
                      observation='eight',
                      max_steps=3000,
@@ -165,7 +165,7 @@ def run(method, setup, generations=15, popsize=50):
 
     fitnesses = list()
 
-    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/best_solution.txt'), 'a+')
+    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/best_solution'), 'a+')
     for champion in results['champions']:
         fitnesses.append(champion.stats['fitness'])
         phenotype = developer.convert(champion)

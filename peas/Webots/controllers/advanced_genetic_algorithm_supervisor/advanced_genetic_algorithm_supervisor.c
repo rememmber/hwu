@@ -30,25 +30,25 @@
 #include <sys/stat.h>
 
 #if (defined _WIN32 || defined __WIN64)
-    static const char *GENOTYPE_FILE_NAME = "genes.txt"; //"/Users/master/Desktop/test_processes/fifofile";
+    static const char *GENOTYPE_FILE_NAME = "genes"; //"/Users/master/Desktop/test_processes/fifofile";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness";
 
-    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt"; //"/Users/master/Desktop/test_processes/best_solution";
+    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution"; //"/Users/master/Desktop/test_processes/best_solution";
 
     static const char *PYTHON_PATH = "C:\\Windows\\py.exe "; //used for WIN (for UNIX, path is specified inside the .py file)
 #elif defined __APPLE__
-    static const char *GENOTYPE_FILE_NAME = "genes.txt";
+    static const char *GENOTYPE_FILE_NAME = "genes";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness";
 
-    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt";
+    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution";
 #else
-    static const char *GENOTYPE_FILE_NAME = "genes.txt";
+    static const char *GENOTYPE_FILE_NAME = "genes";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness";
 
-    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt";
+    static const char *BEST_GENOTYPE_FILE_NAME = "best_solution";
 #endif
 
 // must match the values in the advanced_genetic_algorithm.c code
@@ -85,7 +85,7 @@ static double robot_rot0[4];    // a rotation needs 4 doubles
 
 // start with a demo until the user presses the 'O' key
 // (change this if you want)
-static bool demo = true;
+static bool demo = false;
 
 int steps=0; //steps taken during one run (there is also another way to get this value)
 double total_fitness; //holds information about total fitness during one run
