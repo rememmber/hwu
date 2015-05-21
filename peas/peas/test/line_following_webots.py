@@ -53,21 +53,21 @@ def pass_ann(ann):
     #else:
     #    print ' exists'
 
-    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/fifofile.txt'), 'wb')
+    fifo = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes.txt'), 'wb')
     fifo.write(' '.join(map(str, ann)))  #str(len(ann)) + ' ' + ' '.join(map(str, ann))
     fifo.close()
     comm_direction = Communication.EVALUATION_RESULTS
 	
 def get_stats():
-    while not os.path.exists(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/fifofile_fitness.txt')):
+    while not os.path.exists(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt')):
 	    time.sleep(1)
 	    continue
-    fitness = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/fifofile_fitness.txt'))
+    fitness = open(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt'))
     comm_direction = Communication.PROVIDE_ANN
     fitness_data = fitness.read()
     fitness.close()
     #time.sleep(5)
-    os.remove(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/fifofile_fitness.txt'))
+    os.remove(os.path.join(os.path.dirname(__file__), '../../Webots/controllers/advanced_genetic_algorithm_supervisor/genes_fitness.txt'))
     return fitness_data
 
 def evaluate(individual, task, developer):

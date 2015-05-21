@@ -1,9 +1,9 @@
 build/release/advanced_genetic_algorithm_supervisor.o: \
- advanced_genetic_algorithm_supervisor.c genotype.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/supervisor.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/types.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/nodes.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/robot.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/emitter.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/receiver.h \
- C:\Program\ Files\ (x86)\Webots/include/controller/c/webots/display.h
+  advanced_genetic_algorithm_supervisor.c genotype.h \
+  /Applications/Webots/include/controller/c/webots/supervisor.h \
+  /Applications/Webots/include/controller/c/webots/types.h \
+  /Applications/Webots/include/controller/c/webots/nodes.h \
+  /Applications/Webots/include/controller/c/webots/robot.h \
+  /Applications/Webots/include/controller/c/webots/emitter.h \
+  /Applications/Webots/include/controller/c/webots/receiver.h \
+  /Applications/Webots/include/controller/c/webots/display.h

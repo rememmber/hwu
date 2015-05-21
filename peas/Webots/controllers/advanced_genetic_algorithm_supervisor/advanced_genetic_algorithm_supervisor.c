@@ -30,9 +30,9 @@
 #include <sys/stat.h>
 
 #if (defined _WIN32 || defined __WIN64)
-    static const char *GENOTYPE_FILE_NAME = "fifofile.txt"; //"/Users/master/Desktop/test_processes/fifofile";
+    static const char *GENOTYPE_FILE_NAME = "genes.txt"; //"/Users/master/Desktop/test_processes/fifofile";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "fifofile_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
 
     static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt"; //"/Users/master/Desktop/test_processes/best_solution";
 
@@ -40,13 +40,13 @@
 #elif defined __APPLE__
     static const char *GENOTYPE_FILE_NAME = "fifofile.txt";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "fifofile_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
 
     static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt";
 #else
-    static const char *GENOTYPE_FILE_NAME = "fifofile.txt";
+    static const char *GENOTYPE_FILE_NAME = "genes.txt";
 
-    static const char *GENOTYPE_FITNESS_FILE_NAME = "fifofile_fitness.txt";
+    static const char *GENOTYPE_FITNESS_FILE_NAME = "genes_fitness.txt";
 
     static const char *BEST_GENOTYPE_FILE_NAME = "best_solution.txt";
 #endif
