@@ -324,7 +324,7 @@ void evaluate_genotype(Genotype genotype) {
     
     // measure fitness
     double fitness = measure_fitness();
-    printf("writing fitness: %f\n", fitness);
+    
     char output_fitness[1*sizeof(double)];
     snprintf(output_fitness,sizeof(output_fitness),"%f",fitness);
     
@@ -335,25 +335,19 @@ void evaluate_genotype(Genotype genotype) {
 }
 
 void run_optimization() {
-	printf("optimization\n");
     int times = 0;
     int redo = 1;
     while(redo){
-		printf("reading %s\n", GENOTYPE_FILE_NAME);
         FILE *fp = fopen(GENOTYPE_FILE_NAME, "rb");
         if ( fp == NULL ){
-			printf("shit\n");
             fclose(fp);
             sleep(1);
             continue;
             run_optimization();
-        }else{
-			printf("not shit\n");
-		}
+        }
         
         while ( !feof (fp) )
         {
-			printf("while\n");
             redo = 0;
             if(isEmpty(fp)){
             fclose(fp);
