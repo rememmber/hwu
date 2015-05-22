@@ -48,6 +48,9 @@ Observations:
 # 2. HyperSharpNEAT + Webots
 
 
+# General structure:
+![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/docs/HyperNEAT.png "Logo Title Text 1")
+
 -------
 Resources:
 * http://link.springer.com/chapter/10.1007/978-3-642-55337-0_5
