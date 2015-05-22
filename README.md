@@ -28,7 +28,7 @@ Prerequisite:
 
 TODO:
 * There is a small memory leak in supervisor class
-* Not all functionality is used of peas evolutionary algorithm in specified task (line following)
+* Not all functionality is used of peas evolutionary algorithm in specified task ([line following](https://raw.githubusercontent.com/rememmber/hwu/master/peas/peas/test/line_following_webots.py))
   * Evolving activation function
   * Evolving number of hidden layers
   * Currently max amount of nodes/substrate layer is specified (is it possible to make it variable?)
