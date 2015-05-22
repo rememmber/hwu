@@ -19,7 +19,7 @@ Optional:
 
 Supported platforms:
 * OSX
-* Win (in progress)
+* Win
 
 Prerequisite:
 * specify python_path (supervisor)
