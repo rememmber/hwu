@@ -1,5 +1,10 @@
 # 1. peas + Webots
 ![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/docs/webots_peas_integration.png "Logo Title Text 1")
+Legend:
+* blue arrow - communication between peas and Webots;
+* green arrow - communication inside Webots processes
+* black solid/dashed arrows - sequential execution
+* boxes - states
 
 Run by:
   path_to_webots --mode=fast --stdout --stderr path_to_world.wbt
