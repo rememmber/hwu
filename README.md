@@ -33,6 +33,7 @@ TODO:
   * Evolving number of hidden layers
   * Currently max amount of nodes/substrate layer is specified (is it possible to make it variable?)
   * Nodes with recurrent connections
+  * Biases
 
 Line following experiment in 2 different worlds fitness evolution:
 ![alt text](https://raw.githubusercontent.com/rememmber/hwu/master/peas/Webots/controllers/advanced_genetic_algorithm_supervisor/stats/fitness_evolution.png "Logo Title Text 1")
